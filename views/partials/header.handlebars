@@ -24,43 +24,203 @@
         padding: 0 20px;
         display: inline-block;
     }
-/*-----------------------------------------------------*/
-    .navbar-brand{
-        color: #a0a0a0 !important;
-        margin-right: 20px;
-        height: 38px !important;
-        padding: 4px 15px !important;
+/*------------------------navbar css starts here---------------------------------*/
+    a:hover,
+    a:focus {
+        text-decoration: none;
+        outline: none;
     }
 
-    
-    .dropdown-item{
-        color: #a0a0a0 !important;
-        padding: 8px 15px !important;
-        font-size: 15px;
-    }
-    .dropdown-item:hover{
-        background-color: #353535 !important;
-        color: white !important;
-        border-radius: 5px
-    }
-    .dropdown-submenu {
-    position: relative;
-}
+    /*
+        1.1 Header Area
+        ****************************************************/
 
-.dropdown-submenu .dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-top: -1px;
-}
-</style>
+    /*Bootstrap Reset*/
+
+    .navbar-nav>li>a {
+        padding-top: 0;
+        padding-bottom: 0
+    }
+
+    .mainmenu {
+        background-color: transparent;
+        border-color: transparent;
+        margin-bottom: 0;
+        border: 0 !important
+    }
+
+    .navbar-nav>li:last-child>a {
+        padding-right: 0;
+        margin-right: 0
+    }
+
+    .dropdown-menu {
+        padding: 0;
+        margin: 0;
+        border: 0 solid transition !important;
+        border: 0 solid rgba(0, 0, 0, .15);
+        border-radius: 0;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important
+    }
+
+    .navbar-nav .show .dropdown-menu>li>a {
+        padding: 16px 15px 16px 25px;
+    }
+
+
+    .mainmenu a,
+    .navbar-dark .navbar-nav>li>a,
+    .mainmenu ul li a {
+        color: #fff;
+        font-size: 16px;
+        text-transform: capitalize;
+        padding: 16px 15px;
+        display: block !important;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .mainmenu .active a,
+    .mainmenu .active a:focus,
+    .mainmenu .active a:hover,
+    .mainmenu li a:hover,
+    .mainmenu li a:focus,
+    .navbar-default .navbar-nav>.show>a,
+    .navbar-default .navbar-nav>.show>a:focus,
+    .navbar-default .navbar-nav>.show>a:hover {
+        color: #fff;
+        background: #4CAF50;
+        outline: 0;
+    }
+
+    /*-----./ Main Menu-----*/
+
+    .navbar-default .navbar-toggle {
+        border-color: #fff
+    }
+
+    /*Toggle Button*/
+
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #fff
+    }
+
+    /*Toggle Button*/
+
+    /*==========Sub Menu=v==========*/
+
+    .mainmenu .collapse ul>li:hover>a {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .mainmenu .collapse ul ul>li:hover>a,
+    .navbar-default .navbar-nav .show .dropdown-menu>li>a:focus,
+    .navbar-default .navbar-nav .show .dropdown-menu>li>a:hover {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .mainmenu .collapse ul ul ul>li:hover>a {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .mainmenu .collapse ul ul,
+    .mainmenu .collapse ul ul.dropdown-menu {
+        background: #353535 !important;
+    }
+
+    .mainmenu .collapse ul ul ul,
+    .mainmenu .collapse ul ul ul.dropdown-menu {
+        background: #353535 !important;
+    }
+
+    .mainmenu .collapse ul ul ul ul,
+    .mainmenu .collapse ul ul ul ul.dropdown-menu {
+        background: #353535 !important;
+    }
+
+    /******************************Drop-down menu work on hover**********************************/
+
+    .mainmenu {
+        background: none;
+        border: 0 solid;
+        margin: 0;
+        padding: 0;
+        min-height: 20px;
+        width: 100%;
+    }
+
+    @media only screen and (min-width: 767px) {
+        .mainmenu .collapse ul li:hover>ul {
+            display: block
+        }
+        .mainmenu .collapse ul ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 250px;
+            display: none
+        }
+        /*******/
+        .mainmenu .collapse ul ul li {
+            position: relative
+        }
+        .mainmenu .collapse ul ul li:hover>ul {
+            display: block
+        }
+        .mainmenu .collapse ul ul ul {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            min-width: 250px;
+            display: none
+        }
+        /*******/
+        .mainmenu .collapse ul ul ul li {
+            position: relative
+        }
+        .mainmenu .collapse ul ul ul li:hover ul {
+            display: block
+        }
+        .mainmenu .collapse ul ul ul ul {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            min-width: 250px;
+            display: none;
+            z-index: 1
+        }
+
+    }
+
+    @media only screen and (max-width: 767px) {
+        .navbar-nav .show .dropdown-menu .dropdown-menu>li>a {
+            padding: 16px 15px 16px 35px
+        }
+        .navbar-nav .show .dropdown-menu .dropdown-menu .dropdown-menu>li>a {
+            padding: 16px 15px 16px 45px
+        }
+    }
+
+/*------------------------navbar css ends here-----------------------------------*/    
+    </style>
 <script>
-    $(document).ready(function(){
-        $('.dropdown-submenu a.test').on("click", function(e){
-            $(this).next('ul').toggle();
-            e.stopPropagation();
-            e.preventDefault();
-        });
-    });
+    (function ($) {
+            $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
+                //if no child li has show class, remove the show class from parent opening the child
+                if (!$(this).next().hasClass('show')) {
+                    $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+                }
+                var $subMenu = $(this).next(".dropdown-menu");
+                $subMenu.toggleClass('show');
+
+                $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
+                    $('.dropdown-submenu .show').removeClass("show");
+                });
+
+                return false;
+            });
+        })(jQuery)
 </script>
 
 <div class="header">
@@ -71,66 +231,76 @@
 </div>
 
 
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <a class="navbar-brand" href="/"><i class="fas fa-home"></i></a>
-    <ul class="navbar-nav">
+<nav role="navigation" class="navbar navbar-expand-sm navbar-dark bg-dark mainmenu">
+    <div class="navbar-header">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">ADMIN</a>
-            <ul class="dropdown-menu bg-dark">
-
-                <li><a class="dropdown-item" href="#">Master Data Entry</a></li>
-
-                <li><a class="dropdown-item" href="#">Role Management</a></li>
-
-                <li class="dropdown-submenu"><a class="test" href="#">Submenu</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Submenu action</a></li>
-                        <li class="dropdown-submenu"><a href="#">Submenu2</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Submenu action2</a></li>
-                                <li><a class="dropdown-item" href="#">Another submenu action2</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="dropdown-item" href="#">Another submenu action</a></li>
-                    </ul>
-                </li>
-                <li><a class="dropdown-item" href="#">Role Management2</a></li>
-
-            </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link">menu2</a></li>
-        <li class="nav-item"><a class="nav-link">menu3</a></li>
-
-    </ul>
+    </div>
+    <!-- Collection of nav links and other content for toggling -->
+    <div id="navbarCollapse" class="collapse navbar-collapse">
+        <a class="navbar-brand" href="#"><i class="fas fa-home"></i></a>
+        <ul class="nav navbar-nav dropdown">
+            <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">ADMIN<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Master Data Entry<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Edit Configuration</a></li>
+                            <li><a href="#">Add/Edit Patch</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Patching Notification<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Mass Communication</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Email Template<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Add/Edit Email Template</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Role Management</a></li>
+                </ul>
+            </li>
+            <!-- menu 2-------------------------------------------------------------------->
+            <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">DATABASE PATCHING<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Schedule Patching</a></li>
+                    <li><a href="#">Administer Patching</a></li>
+                    <li><a href="#">Preferred Patching Window</a></li>
+                    <li><a href="#">Cancel Patching</a></li>
+                </ul>
+            </li>
+            <!-- menu 3-------------------------------------------------------------------->
+            <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">UTILITIES<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Database Password Management</a></li>
+                    <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">GDM Inventory Update<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Add/Remove Customer</a></li>
+                            <li><a href="#">Customer Replacement</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <!-- menu 4-------------------------------------------------------------------->
+            <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">REPORTS<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Patching Dashboard</a></li>
+                    <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Custom Reports<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Patching Custom Report</a></li>
+                            <li><a href="#">Customer Management Audit Report</a></li>
+                            <li><a href="#">Password Management Audit Report</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <!-- menu item ends-------------------------------------------------------------------->
+        </ul>
+    </div>
 </nav>
 
-
-<div class="container">
-  <h2>Multi-Level Dropdowns</h2>
-  <p>In this example, we have created a .dropdown-submenu class for multi-level dropdowns (see style section above).</p>
-  <p>Note that we have added jQuery to open the multi-level dropdown on click (see script section below).</p>                                        
-  <div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Tutorials
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a tabindex="-1" href="#">HTML</a></li>
-      <li><a tabindex="-1" href="#">CSS</a></li>
-      <li class="dropdown-submenu">
-        <a class="test" tabindex="-1" href="#">New dropdown <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
-          <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
-          <li class="dropdown-submenu">
-            <a class="test" href="#">Another dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">3rd level dropdown</a></li>
-              <li><a href="#">3rd level dropdown</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</div>
 
