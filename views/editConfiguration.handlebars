@@ -1,0 +1,25 @@
+<script src='client_controllers/configurationManager-client-controller.js'></script>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item">Admin</li>
+    <li class="breadcrumb-item">Master Data Entry</li>
+    <li class="breadcrumb-item active">Edit Configuration</li>
+</ol>
+<div class="container-fluid">
+    <h1>Hello Friends!</h1>
+    <p>Today we are going to make a connect to oracle database</p>
+    <table class="table-bordered" style='width:70%;align:center;margin-left:10%'>
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+        </thead>
+        <tbody id="Master_configurationData">
+
+        </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <div>
+        <input style='margin-left:20%' class='btn btn-success' type="submit" id="submit" value="Show Data" onclick="fetchData()">
+    </div>
+</div>
+

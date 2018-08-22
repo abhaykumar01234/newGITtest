@@ -16,8 +16,10 @@
     "express": "~4.16.0",
     "express-handlebars": "^3.0.0",
     "http-errors": "~1.6.2",
+    "jquery-deferred": "^0.3.1",
     "morgan": "~1.9.0",
     "oracledb": "^2.3.0",
+    "serve-favicon": "^2.5.0",
     "servicenow-rest-api": "^1.0.4"
   }
 }

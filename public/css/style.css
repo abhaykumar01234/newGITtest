@@ -1,8 +1,65 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.icon_box{  
+  -webkit-text-align: center;
+  text-align: center;
+}
+.icon_box .thumbnail{
+  display:inline-block;
+	width: 200px;
+	height: 200px;
+	padding: 0 !important;
+}
+.icon_box .thumbnail:hover{
+  border: 5px solid lightgrey;
+  text-decoration: none;
+}
+.icon_box .icon_text{
+  display:block;
+  color: white;
+	font-weight: bold;
+  height:30px;
+  font-size:15px;
+}
+.icon_box .thumbnail img{
+  display:block;
+  margin:auto;
+  width: 130px;
+  height: 140px;
+  padding-top:10px; 
 }
 
-a {
-  color: #00B7FF;
+.icon_box .thumbnail.col1{
+	background-color: #5eb5c1;
+}
+.icon_box .thumbnail.col2{
+	background-color: #cead4e;
+}
+.icon_box .thumbnail.col3{
+	background-color: #e56057;
+}
+
+
+
+.img1,.img2,.img3{
+	width: 400px;
+	height:80px;
+	padding: 0 !important;
+}
+.info_box{
+  margin-top:20px;
+	color: white;
+	min-height: 20px;
+	
+}
+#patching_info, .icon_box .col1 .icon_text{
+	background-color: #3a8b96;
+}
+#pass_info, .icon_box .col2 .icon_text{
+	background-color: #8e6b08;
+}
+#cust_info, .icon_box .col3 .icon_text{
+	background-color: #a82219;
+}
+
+.popover-title, .popover-content{
+  color: black;
 }

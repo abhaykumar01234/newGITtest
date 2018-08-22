@@ -73,7 +73,7 @@
     .navbar-dark .navbar-nav>li>a,
     .mainmenu ul li a {
         color: #fff;
-        font-size: 16px;
+        font-size: 14px;
         text-transform: capitalize;
         padding: 16px 15px;
         display: block !important;
@@ -90,7 +90,7 @@
     .navbar-default .navbar-nav>.show>a:focus,
     .navbar-default .navbar-nav>.show>a:hover {
         color: #fff;
-        background: #4CAF50;
+        background: rgba(0, 0, 0, 0.5);
         outline: 0;
     }
 
@@ -202,7 +202,17 @@
         }
     }
 
-/*------------------------navbar css ends here-----------------------------------*/    
+/*------------------------navbar css ends here-----------------------------------*/ 
+    .user-details{
+        color: #fff;
+        font-size: 14px;
+        text-transform: capitalize;
+        padding: 16px 15px;
+        display: inline !important;
+        float: right;
+        overflow: hidden;
+        white-space: nowrap;    
+    }
     </style>
 <script>
     (function ($) {
@@ -224,7 +234,7 @@
 </script>
 
 <div class="header">
-    <h3 class="header-text"><a href='/'>Database Self Service Portal</a></h3>
+    <h3 class="header-text"><a href='/'>Github First Trial Page</a></h3>
     <span class="header-image">
         <img src='img/Lillylogo.png'/>
     </span>
@@ -240,47 +250,47 @@
 
     </div>
     <!-- Collection of nav links and other content for toggling -->
-    <div id="navbarCollapse" class="collapse navbar-collapse">
+    <div id="navbarCollapse" class="collapse navbar-collapse ">
         <a class="navbar-brand" href="#"><i class="fas fa-home"></i></a>
         <ul class="nav navbar-nav dropdown">
             <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">ADMIN<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Master Data Entry<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Edit Configuration</a></li>
-                            <li><a href="#">Add/Edit Patch</a></li>
+                            <li><a href="editConfiguration">Edit Configuration</a></li>
+                            <li><a href="newPatch">Add/Edit Patch</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Patching Notification<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Mass Communication</a></li>
+                            <li><a href="massCommunication">Mass Communication</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Email Template<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Add/Edit Email Template</a></li>
+                            <li><a href="emailTemplate">Add/Edit Email Template</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Role Management</a></li>
+                    <li><a href="roleManagement">Role Management</a></li>
                 </ul>
             </li>
             <!-- menu 2-------------------------------------------------------------------->
             <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">DATABASE PATCHING<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Schedule Patching</a></li>
-                    <li><a href="#">Administer Patching</a></li>
-                    <li><a href="#">Preferred Patching Window</a></li>
-                    <li><a href="#">Cancel Patching</a></li>
+                    {{! <li><a href="#">Schedule Patching</a></li>}}
+                    <li><a href="adminsterPatching">Administer Patching</a></li>
+                    <li><a href="prepatchwind">Preferred Patching Window</a></li>
+                    {{!<li><a href="#">Cancel Patching</a></li>}}
                 </ul>
             </li>
             <!-- menu 3-------------------------------------------------------------------->
             <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">UTILITIES<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Database Password Management</a></li>
+                    <li><a href="applicationPass">Database Password Management</a></li>
                     <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">GDM Inventory Update<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Add/Remove Customer</a></li>
-                            <li><a href="#">Customer Replacement</a></li>
+                            <li><a href="application-customer-management">Add/Remove Customer</a></li>
+                            <li><a href="application-customer-replacement">Customer Replacement</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -288,12 +298,12 @@
             <!-- menu 4-------------------------------------------------------------------->
             <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">REPORTS<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Patching Dashboard</a></li>
+                    <li><a href="patching_dashboard">Patching Dashboard</a></li>
                     <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Custom Reports<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Patching Custom Report</a></li>
-                            <li><a href="#">Customer Management Audit Report</a></li>
-                            <li><a href="#">Password Management Audit Report</a></li>
+                            <li><a href="patching_custom_report">Patching Custom Report</a></li>
+                            <li><a href="custAuditReport">Customer Management Audit Report</a></li>
+                            <li><a href="passwordAuditReport">Password Management Audit Report</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -301,6 +311,10 @@
             <!-- menu item ends-------------------------------------------------------------------->
         </ul>
     </div>
+    <span class="user-details">
+        <i class="fas fa-user">&nbsp;&nbsp;</i>Welcome
+        <em id="user_name" style="font-style: normal;"></em>
+    </span>
 </nav>
 
 
